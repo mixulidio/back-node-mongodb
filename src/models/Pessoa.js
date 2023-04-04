@@ -4,8 +4,8 @@ const { Schema } = mongoose;
 const schema = new Schema({
     id: String,
     nome: {type: String, required: true},
-    cpf: {type: Number},
-    rg: {type: Number},
+    cpf: Number,
+    rg: Number,
     dataNascimento: {type: Date},
     email: {type: String, unique: true},
     

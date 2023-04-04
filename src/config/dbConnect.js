@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
-
-mongoose.connect("mongodb+srv://mixulidio:MongoPaulo2022@cluster0.kpnuiig.mongodb.net/alura-node");
+// 635178034724c1716938644d
+//mongoose.connect("mongodb+srv://mixulidio:MongoPaulo2023@cluster0.kpnuiig.mongodb.net/alura-node");
+mongoose.connect("mongodb+srv://mixulidio:MongoPaulo2023@cluster0.kpnuiig.mongodb.net/alura-node");
 
 let db = mongoose.connection;
 export default db;
