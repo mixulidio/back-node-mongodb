@@ -1,3 +1,3 @@
 node_modules
 package-lock.json
-dbConnect.js
+src/config/dbConnect.js
