@@ -6,6 +6,7 @@ const schema = new Schema({
     nome: {type: String, required: true, set: function(v){ return v.toUpperCase();}},
     tags: [String],
     precoMedio: Number,
+    quantidadeAtual: Number,
 })
 
 const tickerTag = mongoose.model('tickerTag', schema);

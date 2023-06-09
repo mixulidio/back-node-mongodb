@@ -24,10 +24,11 @@ export class TickerTagController {
         const ticker = req.body.ticker
         const tags = req.body.tags
         const precoMedio = req.body.precoMedio
+        const quantidadeAtual = req.body.quantidadeAtual
         const filter = {'nome': ticker}
         tickerTag.findOne(filter, (err, resFind) =>{
             if(resFind) {
-                tickerTag.updateOne(filter, {'tags': tags, 'precoMedio': precoMedio}, (e, r) =>{
+                tickerTag.updateOne(filter, {'tags': tags, 'precoMedio': precoMedio, quantidadeAtual}, (e, r) =>{
                     if (r) {
                         res.status(200).send({ message: "atualizado com sucesso." })
                     } else {
@@ -35,7 +36,7 @@ export class TickerTagController {
                     }
                 })
             } else {
-                let reg = new tickerTag({nome: ticker, tags: tags, precoMedio})
+                let reg = new tickerTag({nome: ticker, tags: tags, precoMedio, quantidadeAtual})
                 reg.save((err, resSave) => {
                     this.trataErro(err, req, res, resSave)
                 });
@@ -46,13 +47,14 @@ export class TickerTagController {
     static atualizaOuIncluiSimples = (req, res) => {
         const ticker = req.body.nome
         const precoMedio = req.body.precoMedio
+        const quantidadeAtual = req.body.quantidadeAtual
         const filter = {'nome': ticker}
         tickerTag.findOne(filter, (er, resFind) =>{
             if(er){
                 res.status(500).send({ message: `${er.message} - falha 1 ao atualizar ${ticker}` })
             }
             if(resFind) {
-                tickerTag.updateOne(filter, {'precoMedio': precoMedio}, (e, r) =>{
+                tickerTag.updateOne(filter, {'precoMedio': precoMedio, quantidadeAtual}, (e, r) =>{
                     console.log(r, "updateOne");
                     if (r) {
                         res.status(200).send(r)

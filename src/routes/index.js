@@ -1,9 +1,11 @@
 import express from "express";
-import livros from "./livroRoutes.js";
 import autores from "./autorRoutes.js";
+import carteiraRoutes from "./carteiraRoutes.js";
+import carteiraTickerRoutes from "./carteiraTickerRoutes.js";
+import livros from "./livroRoutes.js";
+import ordem from "./ordemRoutes.js";
 import pessoas from "./pessoaRoutes.js";
 import tickerTag from "./tickerTagRoutes.js";
-import ordem from "./ordemRoutes.js";
 
 const routes = (app) => {
     app.route('/').get((req, res) =>{
@@ -17,6 +19,8 @@ const routes = (app) => {
         pessoas,
         tickerTag,
         ordem,
+        carteiraRoutes,
+        carteiraTickerRoutes,
     )
 }
 
